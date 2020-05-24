@@ -9,8 +9,9 @@ BUILD=./build
 ENTRY=${SRC}/main.asm
 ROM_OUTPUT=${BUILD}/${NAME}.gb
 OBJECT_OUTPUT=${BUILD}/${NAME}.o
+SYMFILE_OUTPUT=${BUILD}/${NAME}.sym
 
 all : ${ENTRY}
 	${ASSEMBLER} -o ${OBJECT_OUTPUT} ${ENTRY} \
-		&& ${LINKER} -o ${ROM_OUTPUT} -n ${NAME}.sym ${OBJECT_OUTPUT} \
+		&& ${LINKER} -o ${ROM_OUTPUT} -n ${SYMFILE_OUTPUT} ${OBJECT_OUTPUT} \
 		&& ${POSTPROC} -v -p 0 ${ROM_OUTPUT}

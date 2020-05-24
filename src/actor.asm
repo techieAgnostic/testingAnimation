@@ -2,23 +2,15 @@
 ; Actor Animation
 ;-----------------
 
-SECTION "Actor Variables Struct", WRAM, ALIGN[8]
-
-wWorldX: dw
-wWorldY: dw
-wActorState: db
-wActorCounter: db
-wActorData: dw
-wActorTile: dw
-
 SECTION "Actor", ROM0
 
-Actor::
+ActorROM::
 .structs:
    dw ActorIdle
 .tiles:
 ActorIdle::
    db 60
+   db 15
    dw .framePa
    db 15
    dw .frameRe

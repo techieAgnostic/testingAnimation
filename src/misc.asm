@@ -134,16 +134,28 @@ PC_Update:
    ret
 
 
-Clear_Map:
-   xor a
-   ld hl, _SCRN0
-   ld bc, _SCRN0_END - _SCRN0
+Clear_OAM:
+   ld hl, wShadowOAM
+   ld bc, wShadowOAMEnd - wShadowOAM
 .loop:
+   xor a
    ld [hli], a
    dec bc
    ld a, b
    or c
-   jr z, .loop
+   jr nz, .loop
+   ret
+
+Clear_Map:
+   ld hl, _SCRN0
+   ld bc, _SCRN0_END - _SCRN0
+.loop:
+   xor a
+   ld [hli], a
+   dec bc
+   ld a, b
+   or c
+   jr nz, .loop
    ret
 
 Load_Tiles:
