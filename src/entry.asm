@@ -46,6 +46,7 @@ Start:
 game_loop:
    call Wait_VBlank
    call Read_Pad
+   call PC_Update
    call Clear_OAM
    ld de, wShadowOAM
    ld hl, Player

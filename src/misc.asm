@@ -124,12 +124,12 @@ PC_Update:
    jr nz, .last
    ld c, 1
 .last:
-   ld a, [rPlayerX]
+   ld a, [Player_XPos]
    add c
-   ld [rPlayerX], a
-   ld a, [rPlayerY]
+   ld [Player_XPos], a
+   ld a, [Player_YPos]
    add b
-   ld [rPlayerY], a
+   ld [Player_YPos], a
 .end:
    ret
 
