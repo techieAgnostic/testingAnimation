@@ -7,7 +7,6 @@ SECTION "Actor", ROM0
 ActorROM::
 .structs:
    dw ActorIdle
-.tiles:
 ActorIdle::
    db 60
    db 15

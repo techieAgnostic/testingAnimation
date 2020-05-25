@@ -15,20 +15,20 @@ SECTION "Actor STructs", WRAM0
 
    dstruct Actor, Player
 
-SECTION "Animation Variables", WRAM0
+SECTION "Animation Variables", HRAM
 
-wCameraX: dw
-wCameraY: dw
+hCameraX: dw
+hCameraY: dw
 
-wWorkingX: dw
-wWorkingY: dw
-wWorkingScreenX: db
-wWorkingScreenY: db
-wWorkingState: db
-wWorkingCounter: db
-wWorkingData: dw
-wWorkingTile: db
-wWorkingEnd:
+hWorkingX: dw
+hWorkingY: dw
+hWorkingScreenX: db
+hWorkingScreenY: db
+hWorkingState: db
+hWorkingCounter: db
+hWorkingData: dw
+hWorkingTile: db
+hWorkingEnd:
 
 SECTION "Animations Subs", ROM0
 
@@ -48,27 +48,27 @@ RenderActor::
    ; @input: hl <- Player
    ; @input: de <- ShadowOAM place
    ld a, [hli] ; a <- YPos
-   ld [wWorkingScreenY], a
+   ldh [hWorkingScreenY], a
    ld a, [hli] ; a <- XPos
-   ld [wWorkingScreenX], a
+   ldh [hWorkingScreenX], a
    push hl
    ld a, [hli] ; a <- GFXCounter
-   ld [wWorkingCounter], a
+   ldh [hWorkingCounter], a
    ld a, [hli] ; a <- GFXState
-   ld [wWorkingState], a
+   ldh [hWorkingState], a
    ld a, [hli] ; a <- GFXData(Low)
-   ld [wWorkingData+1], a
+   ldh [hWorkingData+1], a
    ld a, [hli] ; a <- GFXData (High)
-   ld [wWorkingData], a
+   ldh [hWorkingData], a
    ld a, [hl] ; a <- TileData
-   ld [wWorkingTile], a
+   ldh [hWorkingTile], a
 ; fin loading data
-   ld a, [wWorkingData]
+   ld a, [hWorkingData]
    ld l, a
-   ld a, [wWorkingData+1]
+   ld a, [hWorkingData+1]
    ld h, a
 ; add actor struct offset saved in wWorkingState
-   ld a, [wWorkingState]
+   ld a, [hWorkingState]
    rlca                  ; double state offset because of word length
    add a, l
    ld l, a
@@ -82,7 +82,7 @@ RenderActor::
    ld h, a
    ld a, [hli]           ; a <- state frame limit
    ld b, a
-   ld a, [wWorkingCounter]
+   ld a, [hWorkingCounter]
    inc a
    ld c, a
    ld a, b
@@ -93,7 +93,7 @@ RenderActor::
    xor a
 .continueAnimation
    ; TODO: make counter 0 indexed so doesnt skip first frame
-   ld [wWorkingCounter], a
+   ldh [hWorkingCounter], a
    ld b, h
    ld c, l
    pop hl
@@ -124,7 +124,7 @@ RenderActor::
    ; load Y position, then offset by -16
    ld a, [hli]
    ld c, a
-   ld a, [wWorkingScreenY]
+   ld a, [hWorkingScreenY]
    add c
    ld c, 16
    add c
@@ -133,7 +133,7 @@ RenderActor::
    ; load X position, then offset by -8
    ld a, [hli]
    ld c, a
-   ld a, [wWorkingScreenX]
+   ld a, [hWorkingScreenX]
    add c
    ld c, 8
    add c
@@ -142,7 +142,7 @@ RenderActor::
    ; load tile offset, and add to base tile pointer
    ld a, [hli]
    ld c, a
-   ld a, [wWorkingTile]
+   ld a, [hWorkingTile]
    add c
    ld [de], a
    inc de

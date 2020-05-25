@@ -25,8 +25,6 @@ Start:
    ld [rSCY], a
    ld [rSCX], a
    ld [rNR52], a
-   ld a, LCDCF_ON | LCDCF_OBJON | LCDCF_BGON
-   ld [rLCDC], a
 
    call CopyDMARoutine 
 
@@ -43,11 +41,14 @@ Start:
    ld a, LOW(ActorROM)
    ld [Player_GFXData + 1], a
 
+   ld a, LCDCF_ON | LCDCF_OBJON | LCDCF_BGON
+   ld [rLCDC], a
+
 game_loop:
-   call Wait_VBlank
+   call Hide_OAM
    call Read_Pad
    call PC_Update
-   call Clear_OAM
+   call Wait_VBlank
    ld de, wShadowOAM
    ld hl, Player
    call RenderActor

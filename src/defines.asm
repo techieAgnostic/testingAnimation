@@ -12,18 +12,7 @@ P1F_DPAD     EQU $20
 
 SECTION "ROM Vars", ROM0
 
-dPlayerWidth: db 2
-dPlayerHeight: db 2
-dPlayerSpriteTiles: db $01, $02, $09, $0A
-
 SECTION "WRAM Vars", WRAM0[$C000]
-
-X: dw
-N: dw
-ANS: db
-
-rPlayerX: db
-rPlayerY: db
 
 SECTION "HRAM Vars", HRAM
 
