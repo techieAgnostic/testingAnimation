@@ -6,9 +6,9 @@ INCLUDE "src/actor.asm"
 
 SECTION "Program Start", ROM0[$150]
 Start:
-   ei
    ld a, IEF_VBLANK
    ld [rIE], a
+   ei
    xor a
    ld [hVBlankFlag], a
    call Wait_VBlank
@@ -21,6 +21,7 @@ Start:
    ld a, %11100100
    ld [rBGP], a
    ld [rOBP0], a
+   ld [rOBP1], a
    xor a
    ld [rSCY], a
    ld [rSCX], a

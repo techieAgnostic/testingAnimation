@@ -49,7 +49,7 @@ Clear_OAM:
 
 Hide_OAM:
    ld hl, wShadowOAM
-   ld c, wShadowOAMEnd - wShadowOAM
+   ld c, (wShadowOAMEnd - wShadowOAM) / 4
 .loop:
    xor a
    ld [hl], a
@@ -90,5 +90,4 @@ Load_Map:
    ld bc, Map_Size
    call MemCpy
    ret
-
 
