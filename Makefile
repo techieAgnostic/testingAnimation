@@ -18,7 +18,7 @@ VERSION="0"
 PAD="0xFF"
 RAM="0x00"
 
-PP_FLAGS=-c -f lhg -j -t ${NAME} -k ${LICENSEE} -l ${OLDLIC} -m ${MBC} -n ${VERSION} -p ${PAD} -r ${RAM}
+PP_FLAGS=-f lhg -j -t ${NAME} -k ${LICENSEE} -l ${OLDLIC} -m ${MBC} -n ${VERSION} -p ${PAD} -r ${RAM}
 
 all : ${ENTRY}
 	${ASSEMBLER} -o ${OBJECT_OUTPUT} ${ENTRY} \
