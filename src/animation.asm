@@ -14,6 +14,11 @@
 SECTION "Actor STructs", WRAM0
 
    dstruct Actor, Player
+   dstruct Actor, NPC01
+   dstruct Actor, NPC02
+   dstruct Actor, NPC03
+   dstruct Actor, NPC04
+   dstruct Actor, NPC05
 
 SECTION "Animation Variables", HRAM
 
