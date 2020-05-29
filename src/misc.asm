@@ -31,6 +31,14 @@ PC_Update:
    ld a, [Player_YPos]
    add b
    ld [Player_YPos], a
+.a:
+   ld a, [hNewKeys]
+   and %00000001   ; a pressed
+   cp %00000001
+   jr nz, .end
+   ld a, [Player_GFXState]
+   xor %00000001
+   ld [Player_GFXState], a
 .end:
    ret
 
@@ -74,13 +82,12 @@ Clear_Map:
    ret
 
 Load_Tiles:
-   ld hl, _BGTILES
-   ld de, parecivo_tile_data
-   ld bc, parecivo_tile_data_size
-   call MemCpy
    ld hl, _VRAM
    ld de, parecivo_tile_data
    ld bc, parecivo_tile_data_size
+   call MemCpy
+   ld de, VillagerTiles
+   ld bc, VillagerTilesEnd - VillagerTiles
    call MemCpy
    ret
 

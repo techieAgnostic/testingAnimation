@@ -29,9 +29,9 @@ Start:
 
    call CopyDMARoutine 
 
-   ld a, 72
+   ld a, 100
    ld [Player_YPos], a
-   ld a, 80
+   ld a, 40
    ld [Player_XPos], a
    ld a, $FF
    ld [Player_GFXCounter], a
@@ -49,15 +49,16 @@ Start:
    ld [NPC01_XPos], a
    ld a, 20
    ld [NPC01_GFXCounter], a
-   xor a
+   ld a, 1
    ld [NPC01_GFXState], a
+   xor a
    ld [NPC01_TileData], a
    ld a, HIGH(ActorROM)
    ld [NPC01_GFXData+1], a
    ld a, LOW(ActorROM)
    ld [NPC01_GFXData], a
 
-   ld a, 24
+   ld a, 48
    ld [NPC02_YPos], a
    ld a, 48
    ld [NPC02_XPos], a
@@ -71,9 +72,9 @@ Start:
    ld a, LOW(ActorROM)
    ld [NPC02_GFXData], a
 
-   ld a, 48
+   ld a, 72
    ld [NPC03_YPos], a
-   ld a, 48
+   ld a, 72
    ld [NPC03_XPos], a
    ld a, 40
    ld [NPC03_GFXCounter], a
@@ -85,9 +86,9 @@ Start:
    ld a, LOW(ActorROM)
    ld [NPC03_GFXData], a
 
-   ld a, 48
+   ld a, 96
    ld [NPC04_YPos], a
-   ld a, 24
+   ld a, 96
    ld [NPC04_XPos], a
    ld a, 50
    ld [NPC04_GFXCounter], a
@@ -99,9 +100,9 @@ Start:
    ld a, LOW(ActorROM)
    ld [NPC04_GFXData], a
 
-   ld a, 64
+   ld a, 130
    ld [NPC05_YPos], a
-   ld a, 64
+   ld a, 130
    ld [NPC05_XPos], a
    ld a, 10
    ld [NPC05_GFXCounter], a
