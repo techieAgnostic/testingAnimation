@@ -68,8 +68,8 @@ VillagerWaving::
    db (.vwFrame01End - @) / 4
    db  8, -16,  17, 0
    db  8,  -8,  18, 0
-   db  0, -16,  19, 0
-   db  0,  -8,  20, 0
+   db  0, -16,  19, OAMF_PAL1
+   db  0,  -8,  20, OAMF_PAL1
    db -8, -16,  21, 0
    db -8,  -8,  22, 0
 .vwFrame01End
@@ -78,8 +78,8 @@ VillagerWaving::
    db (.vwFrame02End - @) / 4
    db  8, -16,  17, 0
    db  8,  -8,  18, 0
-   db  0, -16,  23, 0
-   db  0,  -8,  24, 0
+   db  0, -16,  23, OAMF_PAL1
+   db  0,  -8,  24, OAMF_PAL1
    db -8, -16,  21, 0
    db -8,  -8,  22, 0
 .vwFrame02End
@@ -88,8 +88,8 @@ VillagerWaving::
    db (.vwFrame03End - @) / 4
    db  8, -16,  25, 0
    db  8,  -8,  26, 0
-   db  0, -16,  23, 0
-   db  0,  -8,  24, 0
+   db  0, -16,  23, OAMF_PAL1
+   db  0,  -8,  24, OAMF_PAL1
    db -8, -16,  21, 0
    db -8,  -8,  22, 0
 .vwFrame03End
@@ -98,8 +98,8 @@ VillagerWaving::
    db (.vwFrame04End - @) / 4
    db  8, -16,  17, 0
    db  8,  -8,  18, 0
-   db  0, -16,  23, 0
-   db  0,  -8,  24, 0
+   db  0, -16,  23, OAMF_PAL1
+   db  0,  -8,  24, OAMF_PAL1
    db -8, -16,  21, 0
    db -8,  -8,  22, 0
 .vwFrame04End
@@ -108,8 +108,8 @@ VillagerWaving::
    db (.vwFrame05End - @) / 4
    db  8, -16,  17, 0
    db  8,  -8,  18, 0
-   db  0, -16,  19, 0
-   db  0,  -8,  20, 0
+   db  0, -16,  19, OAMF_PAL1
+   db  0,  -8,  20, OAMF_PAL1
    db -8, -16,  21, 0
    db -8,  -8,  22, 0
 .vwFrame05End
@@ -118,8 +118,8 @@ VillagerWaving::
    db (.vwFrame06End - @) / 4
    db  8, -16,  29, 0
    db  8,  -8,  30, 0
-   db  0, -16,  27, 0
-   db  0,  -8,  28, 0
+   db  0, -16,  27, OAMF_PAL1
+   db  0,  -8,  28, OAMF_PAL1
    db -8, -16,  21, 0
    db -8,  -8,  22, 0
 .vwFrame06End

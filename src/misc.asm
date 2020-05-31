@@ -82,6 +82,10 @@ Clear_Map:
    ret
 
 Load_Tiles:
+   ld hl, _BGTILES
+   ld de, grassTiles
+   ld bc, grassTilesEnd - grassTiles
+   call MemCpy
    ld hl, _VRAM
    ld de, parecivo_tile_data
    ld bc, parecivo_tile_data_size
@@ -92,9 +96,11 @@ Load_Tiles:
    ret
 
 Load_Map:
+   xor a
    ld hl, _SCRN0
-   ld de, Map
-   ld bc, Map_Size
-   call MemCpy
+   ld c, 0
+.loop
+   ld [hl], a
+   dec c
+   jr nz, .loop
    ret
-

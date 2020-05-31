@@ -1,0 +1,5 @@
+SECTION "Grass Tile", ROM0
+grassTiles::
+DB $00,$00,$00,$00,$20,$00,$02,$00
+DB $04,$00,$44,$00,$20,$00,$00,$00
+grassTilesEnd::
